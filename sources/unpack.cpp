@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
    try {
       string Path = argv[1];
       Person file;
-      YAML::Node node = YAML::Load("config.yaml");
+      YAML::Node node = YAML::LoadFile("config.yaml");
       if (node["person"]) {
          cout << node["person"].as<string>() << "\n";
       }

@@ -24,7 +24,8 @@ int main(int argc, char* argv[])
       string Path = argv[1];
       Person file;
       YAML::Node node = YAML::LoadFile("config.yaml");
-      if (node["person"]) {
+      cout << node["person"]["First name"].as<std::string>() << endl;
+      /*if (node["person"]) {
          cout << node["person"].as<string>() << "\n";
       }
       if (node["First name"]) {
@@ -41,7 +42,7 @@ int main(int argc, char* argv[])
       }
       if (node["Phone"]) {
          cout << node["Phone"].as<string>() << "\n";
-      }
+      }*/
       
   }
   catch(const exception& e) {

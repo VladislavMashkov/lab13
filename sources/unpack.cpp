@@ -23,26 +23,20 @@ int main(int argc, char* argv[])
    try {
       string Path = argv[1];
       Person file;
-      YAML::Node node = YAML::LoadFile("config.yaml");
-      cout << node["person"]["First name"].as<std::string>() << endl;
-      /*if (node["person"]) {
-         cout << node["person"].as<string>() << "\n";
-      }
-      if (node["First name"]) {
-         cout << node["First name"].as<string>() << "\n";
-      }
-      if (node["Last name"]) {
-         cout << node["Last name"].as<string>() << "\n";
-      }
-      if (node["Email"]) {
-         cout << node["Email"].as<string>() << "\n";
-      }
-      if (node["Age"]) {
-         cout << node["Age"].as<size_t>() << "\n";
-      }
-      if (node["Phone"]) {
-         cout << node["Phone"].as<string>() << "\n";
-      }*/
+
+      YAML::Node node2 = YAML::LoadFile(Path);
+      file.first_name = node2["person"]["First name"].as<std::string>();
+      file.last_name = node2["person"]["Last name"].as<std::string>(); 
+      file.email.nickname = node2["person"]["Email"].as<std::string>();
+      file.age = node2["person"]["Age"].as<size_t>();
+      file.phone= node2["person"]["Phone"].as<std::string>();  
+       
+      cout << "[Person]" << endl;
+      cout << "First name: " << file.first_name << endl;
+      cout << "Last name:  " << file.last_name << endl;
+      cout << "Email:      " << file.email.nickname << endl;
+      cout << "Age:        " << file.age << endl;
+      cout << "Phone:      " << file.phone << endl;
       
   }
   catch(const exception& e) {

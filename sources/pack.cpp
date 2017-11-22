@@ -43,39 +43,17 @@ Person getInfo() {
 
 int main(int argc, char* argv[]) {
   try {
-  	string Path = argv[1];
+    string Path = argv[1];
     Person file = getInfo();
-    /*YAML::Node node;
-    node ["person"] = file.email.server;
-    node["First name"] = file.first_name;
-   	node["Last name"] = file.last_name;
-   	node["Email"] = file.email.nickname;
-   	node["Age"] = file.age;
-   	node["Phone"] = file.phone;
-	ofstream fout(Path);
-    fout << node;*/
-   YAML::Emitter out;
-   out << YAML::BeginMap;
-	out << YAML::Key << "person";
-	out << YAML::BeginMap;
-	out << YAML::Key << "First name";
-	out << YAML::Value << file.first_name;
-   	out << YAML::Key << "Last name";
-	out << YAML::Value << file.last_name;
-	out << YAML::Key << "Email";
-	out << YAML::Value << file.email.nickname;
-	out << YAML::Key << "Age";
-	out << YAML::Value << file.age;
-	out << YAML::Key << "Phone";
-	out << YAML::Value << file.phone;
-	out << YAML::EndMap;
-	out << YAML::EndMap;
-
-   ofstream fout(Path);
-   fout << out.c_str() << endl; 
-   return 0;
-
-
+    YAML::Node node;
+    node["person"]["First name"] = file.first_name;
+    node["person"]["Last name"] = file.last_name;
+    node["person"]["Email"] = file.email.nickname;
+    node["person"]["Age"] = file.age;
+    node["person"]["Phone"] = file.phone;
+    ofstream fout(Path);
+    fout << node;
+    return 0;
   }
   catch(const exception& e) {
     cout << e.what() << endl;

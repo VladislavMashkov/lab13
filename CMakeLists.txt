@@ -19,3 +19,5 @@ find_package(yaml-cpp CONFIG REQUIRED)
 
 add_executable(pack ${CMAKE_CURRENT_SOURCE_DIR}/sources/pack.cpp)
 target_link_libraries(pack yaml-cpp::yaml-cpp)
+add_executable(unpack ${CMAKE_CURRENT_SOURCE_DIR}/sources/unpack.cpp)
+target_link_libraries(unpack yaml-cpp::yaml-cpp)

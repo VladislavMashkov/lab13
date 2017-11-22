@@ -16,3 +16,4 @@ script:
 - cd _build
 - ./pack config.yaml
 - cat config.yaml
+- ./unpack config.yaml

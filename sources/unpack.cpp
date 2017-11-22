@@ -18,24 +18,13 @@ struct Person {
   string  phone;
 };
 
-/*void operator >> (const YAML::Node& node, Person& file) {
-   node["First_name"] >> file.first_name;
-}*/
-void operator>> (const YAML::Node & node, Person& p)
-{
-    node[1] >> p.first_name;
-   
-}
 int main(int argc, char* argv[])
 {
    try {
       string Path = argv[1];
       Person file;
       YAML::Node node = YAML::Load("config.yaml");
-      for(size_t i = 0; i < node.size(); i++) {
-      node[i] >> file;
-      }
-      /*if (node["person"]) {
+      if (node["person"]) {
          cout << node["person"].as<string>() << "\n";
       }
       if (node["First name"]) {
@@ -52,8 +41,8 @@ int main(int argc, char* argv[])
       }
       if (node["Phone"]) {
          cout << node["Phone"].as<string>() << "\n";
-      }*/
-      //node >> file;
+      }
+      
   }
   catch(const exception& e) {
     cout << e.what() << endl;
